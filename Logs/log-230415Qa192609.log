@@ -1,0 +1,18 @@
+19:26:22.986  INFO  tests.TestBase - Name of method --->loginSuccess
+19:26:28.017  INFO  tests.TestBase - Start test with name 'loginSuccess'
+19:26:28.018  INFO  tests.TestBase - Test data: ---> email: 'dasha@gmail.com' & password 'Ashtanga8!'
+19:26:30.089  INFO  tests.TestBase - Assert check is Information window 'Logged in success' present
+19:26:30.301  INFO  tests.TestBase - Name of method --->loginSuccessModel
+19:26:30.523  INFO  tests.TestBase - Before method finish logout
+19:26:30.524  INFO  tests.TestBase - Test data: ---> email: 'dasha@gmail.com' & password 'Ashtanga8!'
+19:26:31.873  INFO  tests.TestBase - Assert check is Information window 'Logged in success' present
+19:26:31.962  INFO  tests.TestBase - Name of method --->loginUnregistered
+19:26:32.106  INFO  tests.TestBase - Before method finish logout
+19:26:32.107  INFO  tests.TestBase - Test data: ---> email: 'cat@mail.com' & password 'Mouse666@'
+19:26:33.426  INFO  tests.TestBase - Assert check is alert present with error text  'Login or Password incorrect'
+19:26:33.501  INFO  tests.TestBase - Name of method --->loginWrongEmail
+19:26:38.539  INFO  tests.TestBase - Test data: ---> email: '...' & password 'Ashtanga8'
+19:26:39.614  INFO  tests.TestBase - Assert check is alert present with error text  'It'snot look like email'
+19:26:44.663  INFO  tests.TestBase - Name of method --->loginWrongPassword
+19:26:49.685  INFO  tests.TestBase - Test data: ---> email: 'dasha@gmail.com' & password 'Ashtanga8'
+19:26:50.872  INFO  tests.TestBase - Assert check is alert present with error text 'Login or Password incorrect'
