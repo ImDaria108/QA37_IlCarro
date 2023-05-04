@@ -1,5 +1,6 @@
 package tests;
 
+import manager.DataProviderUser;
 import models.User;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
@@ -16,29 +17,38 @@ public class LoginTests extends TestBase{
         }
     }
 
-    @Test
-    public void loginSuccess(){
+    @Test(dataProvider = "loginData",dataProviderClass = DataProviderUser.class)
+    public void loginSuccess(String email, String password){
         logger.info("Start test with name 'loginSuccess'");
-        logger.info("Test data: ---> email: 'dasha@gmail.com' & password 'Ashtanga8!'");
+        logger.info("Test data: ---> email: " +email+" & password : "+password);
         app.getHelperUser().openLoginForm();
-        app.getHelperUser().fillLoginForm("dasha@gmail.com","Ashtanga8!");
+        app.getHelperUser().fillLoginForm(email, password);
         app.getHelperUser().submit();
 
         Assert.assertEquals(app.getHelperUser().getMessage(),"Logged in success");
         logger.info("Assert check is Information window 'Logged in success' present");
-
     }
 
-    @Test
-    public void loginSuccessModel(){
-        logger.info("Test data: ---> email: 'dasha@gmail.com' & password 'Ashtanga8!'");
+    @Test(dataProvider = "loginModels",dataProviderClass = DataProviderUser.class)
+    public void loginSuccessModel(User user){
+        logger.info("Test data: ---> " + user.toString());
         app.getHelperUser().openLoginForm();
-        app.getHelperUser().fillLoginForm("dasha@gmail.com","Ashtanga8!");
+        app.getHelperUser().fillLoginForm(user);
         app.getHelperUser().submit();
 
         Assert.assertEquals(app.getHelperUser().getMessage(),"Logged in success");
         logger.info("Assert check is Information window 'Logged in success' present");
+    }
 
+    @Test(dataProvider = "loginFile2",dataProviderClass = DataProviderUser.class)
+    public void loginSuccessModelDP(User user) {
+        logger.info("Test data: ---> " + user.toString());
+        app.getHelperUser().openLoginForm();
+        app.getHelperUser().fillLoginForm(user);
+        app.getHelperUser().submit();
+
+        Assert.assertEquals(app.getHelperUser().getMessage(),"Logged in success");
+        logger.info("Assert check is Information window 'Logged in success' present");
     }
     @Test
     public void loginWrongEmail(){
